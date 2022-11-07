@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <form action="/history" method="post">
+        <table class="table table-hover">
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>Amount</th>
+                <th>Price</th>
+                <th>Date</th>
+                <th>status</th>
+
+                    {% for row in transactions %}
+                    <tr>
+                        <td>
+                            {{ row["stock_name"] }}
+                        </td>
+                        <td>
+                            {{ row["stock_symbol"] }}
+                        </td>
+                        <td>
+                            {{ row["size"] }}
+                        </td>
+                        <td>
+                            {{ row["price"] }}
+                        </td>
+                        <td>
+                            {{ row["date"] }}
+                        </td>
+                        <td>
+                            {{ row["status"] }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+        </table>
+    </form>
+
+
+{% endblock %}

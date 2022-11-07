@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <form action="/index" method="post">
+        <table class="table table-hover">
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>Amount</th>
+                <th>Current Price</th>
+                <th>Total</th>
+
+                {% for i in range(in_wallet|length) %}
+                <tr>
+                    <td>
+                        {{ in_wallet[i]["stock_name"] }}
+                    </td>
+                    <td>
+                        {{ in_wallet[i]["stock_symbol"] }}
+                    </td>
+                    <td>
+                        {{ in_wallet[i]["size"] }}
+                    </td>
+                    <td>
+                        {{ stocks_value[i]["price"][0] }}
+                    </td>
+                    <td>
+                        {{ stocks_value[i]["value"][0] }}
+
+                    </td>
+
+                {% endfor %}
+                <tr>
+
+            </table>
+
+            <div class="centered">
+                <table class="table table-hover">
+                    <th>Cash</th>
+                    <th>Total Value</th>
+                        <tr>
+                            <td>
+                                {{ cash }}
+                            </td>
+                            <td>
+                                {{ total_value }} 
+                            </td>
+                        </tr>
+                </table>    
+            </div>
+    </form>
+
+
+{% endblock %}
+
+
+

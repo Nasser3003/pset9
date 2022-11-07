@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Stocks
+{% endblock %}
+
+{% block main %}
+
+    <form action="/stock" method="post">
+        <table class="table table-hover">
+                <th>Name</th>
+                <th>Price</th>
+                <th>Symbol</th>
+
+                    <tr>
+                        <td>
+                            {{ stock_name }}
+                        </td>
+                        <td>
+                            {{ stock_price }}
+                        </td>
+                        <td>
+                            {{ stock_symbol }}
+                        </td>
+                    </tr>
+        </table>
+    </form>
+
+
+{% endblock %}
